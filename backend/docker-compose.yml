@@ -11,8 +11,7 @@ services:
       - LETSENCRYPT_HOST=api.listail.org
     networks:
       - default
-      - nginx-netork
-  
+      - nginx-network
 networks:
   nginx-network:
     external: true
