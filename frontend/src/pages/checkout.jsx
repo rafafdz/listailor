@@ -1,6 +1,7 @@
 import { useState, useMemo } from "react";
 import CredentialsDrawer from "@/components/ui/CredentialsDrawer";
 import Button from '@/components/ui/button'
+import ListProductsReasonsDrawer from "@/components/ui/ListProductsReasonsDrawer";
 import { useCreateList } from '@/api/lists';
 import JumboSpinner from '@/components/ui/JumboSpinner';
 import { useLists } from '@/contexts/ListsContext';
@@ -9,6 +10,7 @@ import { RadialChart } from '@/components/ui/RadialChart';
 
 export default function Checkout() {
   const [credentialsDrawerOpen, setCredentialsDrawerOpen] = useState(false)
+  const [reasonsDrawerOpen, setReasonsDrawerOpen] = useState(false)
   const { selectedList } = useLists()
   const createListMutation = useCreateList()
 
@@ -47,7 +49,12 @@ export default function Checkout() {
             <span className='font-bold text-center text-gray-700'>
               Tu puntaje de sustentabilidad
             </span>
-            <RadialChart score={score} />
+            <button
+              className='flex-1 w-full'
+              onClick={() => setReasonsDrawerOpen(true)}
+            >
+              <RadialChart score={score} />
+            </button>
             <p className='text-gray-600 text-sm mt-10'>
               El puntaje de sustentabilidad es un indicador de cuán sustentable es tu lista de compra. Para
               obtenerlo se consideran multiples factores, como los ingredientes, el packaging, país de origen
@@ -73,6 +80,10 @@ export default function Checkout() {
         open={credentialsDrawerOpen}
         onConfirm={handleConfirm}
         onClose={() => setCredentialsDrawerOpen(false)}
+      />
+      <ListProductsReasonsDrawer
+        open={reasonsDrawerOpen}
+        onClose={() => setReasonsDrawerOpen(false)}
       />
     </div>
   )
