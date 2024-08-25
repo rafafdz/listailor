@@ -2,18 +2,18 @@ import { useMutation } from '@tanstack/react-query';
 import { api } from '.';
 
 export const listApi = {
-  async create(email, password) {
+  async create(username, password, products) {
     return api({
-      method: 'GET',
+      method: 'POST',
       url: `/jumbo_carts/shopping_list`,
-      data: { email, password },
+      data: { username, password, products },
     }).then((response) => response.data);
   },
 }
 
 export function useCreateList(options = {}) {
   return useMutation({
-    mutationFn: ({ email, password }) => listApi.create(email, password),
+    mutationFn: ({ username, password, products }) => listApi.create(username, password, products),
     ...options
   })
 }

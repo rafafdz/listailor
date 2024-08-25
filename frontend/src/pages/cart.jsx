@@ -3,6 +3,7 @@ import CartProductCard from '@/components/ui/CartProductCard';
 import SelectProductDrawer from '@/components/ui/SelectProductDrawer';
 import { useLists } from '@/contexts/ListsContext'
 import { ArrowLongLeftIcon } from '@heroicons/react/24/solid';
+import Link from 'next/link';
 
 export default function Cart() {
   const { selectedList, addItemToList, removeItemFromList } = useLists();
@@ -27,12 +28,12 @@ export default function Cart() {
   return(
     <div className='relative flex grow flex-col items-center w-full mt-16 mb-24'>
       <div className='relative flex w-full flex-row items-center justify-center'>
-        <a
+        <Link
           href="/"
           className='p-2 absolute left-4'
         >
           <ArrowLongLeftIcon className='w-6 h-auto text-primary' />
-        </a>
+        </Link>
         <span className='text-lg'>🛒</span>
         <h1 className='ml-4 text-lg font-bold text-center text-gray-700'>
           Tu carrito
@@ -48,14 +49,14 @@ export default function Cart() {
         ))}
       </div>
       <div className='fixed bottom-0 bg-white p-6 w-full shadow border-t border-gray-50'>
-        <a
+        <Link
           href="/checkout"
           className='w-full bg-primary py-2 w-full flex items-center justify-center rounded-xl'
         >
           <span className='text-white font-medium'>
             Continuar
           </span>
-        </a>
+        </Link>
       </div>
       <SelectProductDrawer
         open={productDrawerOpen && selectedProduct}

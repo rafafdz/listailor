@@ -7,6 +7,7 @@ import ProductCard from '@/components/ui/ProductCard';
 import SelectProductDrawer from '@/components/ui/SelectProductDrawer';
 import { BASE_LIST, useLists } from '@/contexts/ListsContext';
 import JumboSpinner from '@/components/ui/JumboSpinner';
+import Link from 'next/link';
 
 export default function Home() {
   const { lists, selectedList, addItemToList, removeItemFromList, selectList } = useLists();
@@ -62,12 +63,12 @@ export default function Home() {
 
   return (
     <main className='relative pt-40 flex flex-col py-4'>
-      <div className='fixed bg-white w-full top-0 pt-12 pb-4 px-4 flex flex-row gap-x-4 w-full flex items-center'>
+      <div className='fixed z-50 bg-white w-full top-0 pt-12 pb-4 px-4 flex flex-row gap-x-4 w-full flex items-center'>
         <SearchBar
           onChangeText={(text) => setText(text)}
           onSubmit={() => console.log('submit')}
         />
-        <a
+        <Link
           className='relative bg-gray-100 rounded-xl w-12 h-12 flex items-center justify-center'
           href="/cart"
         >
@@ -77,7 +78,7 @@ export default function Home() {
               {selectedList.items.length}
             </span>
           </div>
-        </a>
+        </Link>
       </div>
       <div className='px-6 flex flex-col'>
         {searchQ.isFetching ? (
@@ -108,7 +109,7 @@ export default function Home() {
                   {lists.map((list, index) => (
                     <ListCard
                       key={index}
-                      onClick={(listName) => handleSelectList(listName)}
+                      onClick={() => handleSelectList(list.name)}
                       list={list}
                     />
                   ))}

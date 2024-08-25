@@ -9,7 +9,7 @@ import Button from './button'
 import Input from './input.jsx'
 
 export default function CredentialsDrawer({ open, onConfirm, onClose }) {
-  const [email, setEmail] = useState('')
+  const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const drawerRef = useRef(null);
 
@@ -39,10 +39,10 @@ export default function CredentialsDrawer({ open, onConfirm, onClose }) {
             🛒 Ingresa tus credenciales de tu cuenta Jumbo para crear tu carrito
           </p>
           <Input
-            placeholder="Ingresa tu email"
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Ingresa tu rut o email"
+            type="username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
           />
           <Input
             placeholder="Ingresa tu contraseña"
@@ -54,8 +54,8 @@ export default function CredentialsDrawer({ open, onConfirm, onClose }) {
         <DrawerFooter className='mb-12'>
           <Button
             text="Continuar"
-            onClick={() => onConfirm(email, password)}
-            disabled={!email || !password}
+            onClick={() => onConfirm(username, password)}
+            disabled={!username || !password}
           />
         </DrawerFooter>
       </DrawerContent>
