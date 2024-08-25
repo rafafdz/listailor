@@ -41,6 +41,7 @@ ssh -t deploy  <<EOF
     ! -name 'payload.zip'\
     ! -name 'deploy.log'\
     ! -path './.env*'\
+    ! -path './backend/.env'\
     ! -path './data*'\
     ! -path './config/master.key'\
     -exec rm -f {} +
