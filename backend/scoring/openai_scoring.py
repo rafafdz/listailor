@@ -62,6 +62,7 @@ def analyze_ingredients(products: List[Product]) -> List[AnalysisOutput]:
         ],
         response_format={"type": "json_object"},
     )
+    print(f"debug ingredients: {completion.choices[0].message.content}")
     return [
         AnalysisOutput(**item)
         for item in json.loads(completion.choices[0].message.content)["products"]
@@ -89,6 +90,7 @@ def analyze_images(products: List[Product]) -> List[AnalysisOutput]:
         ],
         response_format={"type": "json_object"},
     )
+    print(f"debug image: {completion.choices[0].message.content}")
     return [
         AnalysisOutput(**item)
         for item in json.loads(completion.choices[0].message.content)["products"]
@@ -126,6 +128,7 @@ def analyze_reasons(
         ],
         response_format={"type": "json_object"},
     )
+    print(f"debug reason: {completion.choices[0].message.content}")
     return [
         SustainabilityScore(**item)
         for item in json.loads(completion.choices[0].message.content)["products"]
@@ -137,6 +140,7 @@ def main(products: List[Product]):
     ingredient_analysis = analyze_ingredients(products)
 
     # Analyze images
+    print("Analyzing images...")
     image_analysis = analyze_images(products)
 
     # Combine analyses and summarize reasons

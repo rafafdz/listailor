@@ -27,7 +27,7 @@ class SupabaseService:
     ) -> list[SupabaseItem] | list[dict] | None:
         response = self.supabase.rpc(
             "match_items",
-            {"match_count": n, "match_threshold": 0.1, "query_embedding": embeddings},
+            {"match_count": n, "match_threshold": 0.4, "query_embedding": embeddings},
         ).execute()
 
         if response.data:

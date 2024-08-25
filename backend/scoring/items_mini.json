@@ -1,0 +1,54 @@
+{
+  "vinos": [
+    {
+      "item_id": "61755",
+      "name": "Vino Pipeño 11.5° botella 1.5 L",
+      "image_url": "https://jumbo.vtexassets.com/arquivos/ids/921497/Vino-Pipeño-115°-botella-15-L.jpg?v=638562258658230000",
+      "traces": "",
+      "ingredients": "Pipeño",
+      "url": "https://www.jumbo.cl/vino-pipeno-casa-grande-11-5g-bot-1500cc/p",
+      "price": 5290,
+      "packaging": "Botella de vidrio"
+    },
+    {
+      "item_id": "62641",
+      "name": "Vino Pipeño 11.5° 1.5 L",
+      "image_url": "https://jumbo.vtexassets.com/arquivos/ids/912954/Vino-Pipeño-115°-15-L.jpg?v=638562250326200000",
+      "traces": "",
+      "ingredients": "Vino blanco pipeño",
+      "url": "https://www.jumbo.cl/vino-pipeno-copahue-11-5g-bot-1500cc/p",
+      "price": 3390,
+      "packaging": "Botella plástico desechable (bebidas)"
+    },
+    {
+      "item_id": "29083",
+      "name": "Jarabe de Granadina Mitjans 900 ml",
+      "image_url": "https://jumbo.vtexassets.com/arquivos/ids/938737/Jarabe-de-Granadina-Mitjans-900-ml.jpg?v=638587268089730000",
+      "traces": "",
+      "ingredients": "Fructosa,  Agua,  Glucosa,  ácido cítrico,  ácido tartárico,  Preservante citrato de sodio,  Color azorrubina,  Indigotina,  Ponceau 4r,  Tartrazina,  Sabor idéntico al natural,  Aroma idéntico al natural",
+      "url": "https://www.jumbo.cl/granadina-mitjans-900-cc/p",
+      "price": 5790,
+      "packaging": "Botella de vidrio"
+    },
+    {
+      "item_id": "29137",
+      "name": "Jarabe granadina Mel 1.03 L",
+      "image_url": "https://jumbo.vtexassets.com/arquivos/ids/938748/Jarabe-granadina-Mel-103-L.jpg?v=638587268138930000",
+      "traces": "Proteína de leche, Almendras, Sulfitos",
+      "ingredients": "Sacarosa,  Agua,  ácido tartárico,  Esencia granadina,  Colorante indigotina,  Colorante carmoisina,  Sorbato de potasio,  Benzoato de sodio",
+      "url": "https://www.jumbo.cl/jarabe-granadina-mel-1-03-l/p",
+      "price": 6190,
+      "packaging": "Botella plástico desechable (bebidas)"
+    },
+    {
+      "item_id": "40722",
+      "name": "Jarabe granadina Mel zero 1.03 L",
+      "image_url": "https://jumbo.vtexassets.com/arquivos/ids/938677/Jarabe-granadina-Mel-zero-103-L.jpg?v=638587267885830000",
+      "traces": "Almendras, Caseína, Sulfitos",
+      "ingredients": "Agua,  Maltitol,  Oligosacáridos,  Estevia,  ácido tartárico,  Esencia granadina,  Indigotina,  Carmoisina,  Sorbato de potasio,  Benzoato de sodio,  ácido cítrico,  Sucralosa",
+      "url": "https://www.jumbo.cl/jarabe-granadina-mel-zero-1-03-l/p",
+      "price": 5990,
+      "packaging": "Botella"
+    }
+  ]
+}

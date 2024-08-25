@@ -137,7 +137,7 @@ def process_items(category: str, jumbo_items: List[JumboItem]):
 
 def linear_upload_items(items: Dict[str, List[JumboItem]]):
     for category, category_items in items.items():
-        batch = category_items[40:80]  # Take up to 40 items
+        batch = category_items[:40]  # Take up to 40 items
         process_items(category, batch)
 
 
@@ -145,15 +145,7 @@ if __name__ == "__main__":
     with open("items_utf8.json", "r") as f:
         data = json.load(f)
     target_categories = [
-        "yoghurt",
-        "panaderia-envasada",
-        "huevos",
-        "aderezos-y-salsas",
-        "empanadas-y-sandwiches",
-        "helados-y-postres",
-        "licores-y-cocteles",
-        "vinos",
-        "fiambreria",
+        "papeles-hogar",
     ]
     categories_to_process = {}
     for category, category_items in data.items():
