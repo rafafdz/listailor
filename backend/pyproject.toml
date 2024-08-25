@@ -10,11 +10,11 @@ python = "^3.10"
 supabase = "^2.7.3"
 fastapi = {extras = ["standard"], version = "^0.112.1"}
 blinker = "1.7.0"
-requests = "^2.32.3"
-tqdm = "^4.66.5"
-webdriver-manager = "^4.0.2"
 beautifulsoup4 = "^4.12.3"
 openai = "^1.42.0"
+python-dotenv = "^1.0.1"
+requests = "^2.32.3"
+pydantic-settings = "^2.4.0"
 
 
 [build-system]
