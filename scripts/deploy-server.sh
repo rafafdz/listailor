@@ -4,7 +4,7 @@ cd backend
 # Report any deploy error to slack
 # Always run migrations in staging
 # Send warning of pending migration to slack in production
-cmd="docker compose up -d"
+cmd="sudo docker compose"
 
 $cmd stop
 $cmd build
