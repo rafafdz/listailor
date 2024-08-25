@@ -1,5 +1,7 @@
-import svg from './switch.svg'
-
-export default function Switch() {
-  return <img src={svg} alt='switch' />
+export default function Switch(props) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" {...props}>
+      <path d="M16.977 19.5001C18.7341 18.3364 20.0272 16.593 20.6308 14.5738C21.2344 12.5546 21.1102 10.3875 20.2799 8.45046C19.4496 6.51339 17.9658 4.92914 16.0872 3.97387C14.2086 3.01859 12.0544 2.75288 9.99997 3.22305M16.977 19.5001V16.0001M16.977 19.5001H20.5M6.99997 4.51605C5.24888 5.68396 3.96251 7.42867 3.36457 9.44679C2.76663 11.4649 2.89494 13.6288 3.72719 15.5621C4.55944 17.4954 6.04298 19.0759 7.91982 20.0286C9.79667 20.9814 11.9481 21.2462 14 20.7771M6.99997 4.51605V8.00005M6.99997 4.51605H3.49997" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  )
 }

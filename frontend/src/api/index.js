@@ -3,7 +3,7 @@ import humps from 'humps';
 import { merge } from 'lodash';
 
 const api = axios.create({
-  baseURL: 'http://localhost:3001/mock',
+  baseURL: 'https://api.listail.org',
 });
 
 api.interceptors.request.use((config) => {

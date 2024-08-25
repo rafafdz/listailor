@@ -1,12 +1,12 @@
 import ScoreBadge from './ScoreBadge'
 import { toCurrency } from '@/lib/utils'
 
-export default function ProductCard({ product, onClick }){
-  console.log(product);
+export default function ProductCard({ product, onClick, className, ...props }){
   return(
     <button
       onClick={onClick}
-      className='flex flex-row items-center'
+      className={`flex pr-4 flex-row rounded-2xl overflow-hidden items-center w-full ${className}`}
+      {...props}
     >
       <div className='w-16 h-16 overflow-hidden shrink-0'>
         <img

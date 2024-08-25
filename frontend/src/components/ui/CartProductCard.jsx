@@ -1,20 +1,16 @@
-import { useProductSuggestionsQuery } from '@/api/useProductSuggestions'
-import Switch from '@/components/svgs/Switch'
+import { PencilIcon } from 'lucide-react';
 import { toCurrency } from '@/lib/utils'
 
-export default function CartProductCard({ product }) {
-  console.log(product);
-  const suggestionsQ = useProductSuggestionsQuery(product.id)
-
+export default function CartProductCard({ product, onEdit }) {
   return(
-    <div className='flex flex-row items-center gap-x-4'>
+    <div className='flex w-full flex-row items-center gap-x-4'>
       <div className='w-16 h-16 overflow-hidden shrink-0'>
         <img
           src={product.imageUrl}
           className='w-full h-auto object-cover'
         />
       </div>
-      <div className='mx-4 py-4 flex flex-col gap-y-2 justify-between'>
+      <div className='py-4 flex flex-col gap-y-2 justify-between'>
         <span className='text-sm text-left font-semibold text-gray-700'>
           {product.label}
         </span>
@@ -22,8 +18,8 @@ export default function CartProductCard({ product }) {
           {toCurrency(product.price)}
         </span>
       </div>
-      <button className='ml-auto'>
-        <Switch />
+      <button onClick={onEdit} className='ml-auto'>
+        <PencilIcon className='w-4 h-4 text-primary' />
       </button>
     </div>
     )

@@ -11,12 +11,104 @@ const DEFAULT_LISTS = [
   {
     name: 'Lista sustentable',
     icon: '🌳',
-    items: []
+    items: [
+      {
+        id: 1,
+        label: "Helado colun 1 125G",
+        imageUrl: "https://jumbo.vtexassets.com/arquivos/ids/466501-180-180?width=900width=180&height=180height=900&aspect=true",
+        score: 5.0,
+        price: 2333,
+        category: "Yogurts",
+        reason: "La razon es que esta wea contamina caleta papito",
+        quantity: 3
+      },
+      {
+        id: 2,
+        label: "Yogurt colun 2 125G",
+        imageUrl: "https://jumbo.vtexassets.com/arquivos/ids/466501-180-180?width=900width=180&height=180height=900&aspect=true",
+        score: 5.0,
+        price: 2333,
+        category: "Yogurts",
+        reason: "La razon es que esta wea contamina caleta papito",
+        quantity: 1
+      },
+      {
+        id: 3,
+        label: "Yogurt con granola 125G",
+        imageUrl: "https://jumbo.vtexassets.com/arquivos/ids/466501-180-180?width=900width=180&height=180height=900&aspect=true",
+        score: 5.0,
+        price: 2333,
+        category: "Yogurts",
+        reason: "La razon es que esta wea contamina caleta papito",
+        quantity: 1
+      },
+      {
+        id: 4,
+        label: "Cereales milo 125G",
+        imageUrl: "https://jumbo.vtexassets.com/arquivos/ids/466501-180-180?width=900width=180&height=180height=900&aspect=true",
+        score: 5.0,
+        price: 2333,
+        category: "Yogurts",
+        reason: "La razon es que esta wea contamina caleta papito",
+        quantity: 1
+      },
+      {
+        id: 5,
+        label: "Leche con yogurt 125G",
+        imageUrl: "https://jumbo.vtexassets.com/arquivos/ids/466501-180-180?width=900width=180&height=180height=900&aspect=true",
+        score: 5.0,
+        price: 2333,
+        category: "Yogurts",
+        reason: "La razon es que esta wea contamina caleta papito",
+        quantity: 1
+      },
+      {
+        id: 5,
+        label: "Queso griego 125G",
+        imageUrl: "https://jumbo.vtexassets.com/arquivos/ids/466501-180-180?width=900width=180&height=180height=900&aspect=true",
+        score: 5.0,
+        price: 2333,
+        category: "Yogurts",
+        reason: "La razon es que esta wea contamina caleta papito",
+        quantity: 1
+      },
+      {
+        id: 5,
+        label: "Pillows con cafeina 125G",
+        imageUrl: "https://jumbo.vtexassets.com/arquivos/ids/466501-180-180?width=900width=180&height=180height=900&aspect=true",
+        score: 5.0,
+        price: 2333,
+        category: "Yogurts",
+        reason: "La razon es que esta wea contamina caleta papito",
+        quantity: 1
+      },
+      {
+        id: 5,
+        label: "Marlboro red 125G",
+        imageUrl: "https://jumbo.vtexassets.com/arquivos/ids/466501-180-180?width=900width=180&height=180height=900&aspect=true",
+        score: 5.0,
+        price: 2333,
+        category: "Yogurts",
+        reason: "La razon es que esta wea contamina caleta papito",
+        quantity: 1
+      }
+    ]
   },
   {
     name: 'Lista no tan sustentable',
     icon: '🚬',
-    items: []
+    items: [
+      {
+        id: 5,
+        label: "Marlboro red 125G",
+        imageUrl: "https://jumbo.vtexassets.com/arquivos/ids/466501-180-180?width=900width=180&height=180height=900&aspect=true",
+        score: 1.0,
+        price: 2333,
+        category: "Yogurts",
+        reason: "La razon es que esta wea contamina caleta papito",
+        quantity: 1
+      }
+    ]
   }
 ];
 
@@ -26,7 +118,7 @@ const ListsContext = createContext();
 // Create a provider component
 export function ListsProvider({ children }) {
   const [lists, setLists] = useLocalStorage("lists", DEFAULT_LISTS);
-  const [selectedListName, setSelectedListName] = useState(lists[0]?.name || BASE_LIST.name);
+  const [selectedListName, setSelectedListName] = useLocalStorage('selectedListName', lists[0]?.name || BASE_LIST.name);
   const selectedList = lists.find(list => list.name === selectedListName) || BASE_LIST;
 
   // Function to add a new list
@@ -41,15 +133,12 @@ export function ListsProvider({ children }) {
 
   // Function to add or update an item in the selected list
   function addItemToList(item) {
-    console.log(item.id, item.quantity);
     const list = { ...selectedList };
 
     list.items = list.items.filter(i => i.id !== item.id);
     list.items.push(item);
 
-    console.log(list.name, item);
-
-    setLists([...lists.filter(l => l.id !== list.id), list]);
+    setLists([...lists.filter(l => l.name !== list.name), list]);
   }
 
   function removeItemFromList(itemId) {

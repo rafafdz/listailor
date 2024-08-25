@@ -1,41 +1,67 @@
+import { useState } from 'react';
 import CartProductCard from '@/components/ui/CartProductCard';
-import ProductSuggestionsDrawer from '@/components/ui/ProductSuggestionsDrawer';
+import SelectProductDrawer from '@/components/ui/SelectProductDrawer';
 import { useLists } from '@/contexts/ListsContext'
-import { useState } from "react"
+import { ArrowLongLeftIcon } from '@heroicons/react/24/solid';
 
 export default function Cart() {
-  const { selectedList } = useLists();
-  const [switchProductDrawerOpen, setSwitchProductDrawerOpen] = useState(false);
+  const { selectedList, addItemToList, removeItemFromList } = useLists();
+  const [productDrawerOpen, setProductDrawerOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
 
-  function openSwitchProductDrawer(product) {
-    setSelectedProduct(product);
-    setSwitchProductDrawerOpen(true);
+  function handleAddProduct(product, quantity) {
+    if (quantity > 0) {
+      addItemToList({ ...product, quantity });
+    } else {
+      removeItemFromList(product.id)
+    }
+
+    setProductDrawerOpen(false);
   }
 
-  function switchProduct() {
-
+  function handleEdit(product) {
+    setSelectedProduct(product);
+    setProductDrawerOpen(true);
   }
 
   return(
-    <div className='flex flex-col items-center w-full p-4 mt-10'>
-      <p className='text-base font-bold text-center'>
-        Tienes algunos productos que podrias cambiar por su alternativa más sustentable
-      </p>
-      <div className='flex flex-col space-y-4'>
+    <div className='relative flex grow flex-col items-center w-full mt-16 mb-24'>
+      <div className='relative flex w-full flex-row items-center justify-center'>
+        <a
+          href="/"
+          className='p-2 absolute left-4'
+        >
+          <ArrowLongLeftIcon className='w-6 h-auto text-primary' />
+        </a>
+        <span className='text-lg'>🛒</span>
+        <h1 className='ml-4 text-lg font-bold text-center text-gray-700'>
+          Tu carrito
+        </h1>
+      </div>
+      <div className='flex grow flex-col space-y-6 w-full mt-10 pl-4 pr-8'>
         {selectedList.items.map(item => (
           <CartProductCard
             key={item.id}
-            onSwitch={() => openSwitchProductDrawer(product)}
+            onEdit={() => handleEdit(item)}
             product={item}
           />
         ))}
       </div>
-      <ProductSuggestionsDrawer
-        open={switchProductDrawerOpen}
+      <div className='fixed bottom-0 bg-white p-6 w-full shadow border-t border-gray-50'>
+        <a
+          href="/checkout"
+          className='w-full bg-primary py-2 w-full flex items-center justify-center rounded-xl'
+        >
+          <span className='text-white font-medium'>
+            Continuar
+          </span>
+        </a>
+      </div>
+      <SelectProductDrawer
+        open={productDrawerOpen && selectedProduct}
         product={selectedProduct}
-        onConfirm={() => switchProduct()}
-        onClose={() => setSwitchProductDrawerOpen(false)}
+        onConfirm={handleAddProduct}
+        onClose={() => setProductDrawerOpen(false)}
       />
     </div>
     )
