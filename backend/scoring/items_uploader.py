@@ -1,14 +1,14 @@
 from supabase import create_client, Client
 from pydantic import BaseModel
 from openai import OpenAI
-from typing import List
+from typing import List, Dict
 import json
 import random
 from dotenv import load_dotenv
 import os
 import time
-import concurrent.futures
 import logging
+import openai_scoring
 
 # Set up logging
 logging.basicConfig(
@@ -43,121 +43,122 @@ class JumboItem(BaseModel):
     item_id: str
     name: str
     image_url: str
-    trazas: str
-    ingredientes: str
-    envase: str
-    pais_origen: str
-    precio: int
+    traces: str
+    ingredients: str
+    packaging: str
+    price: int
 
 
-def process_item(jumbo_item: JumboItem):
-    try:
-        logging.info(f"Processing {jumbo_item.name}")
-
-        # OpenAI API call
-        try:
-            response = openai_client.embeddings.create(
-                input=jumbo_item.name, model="text-embedding-3-small"
-            )
-            embedding = response.data[0].embedding
-        except Exception as e:
-            logging.error(f"OpenAI API error for {jumbo_item.name}: {str(e)}")
-            raise
-
-        # Create SupabaseItem
-        item = SupabaseItem(
-            item_name=jumbo_item.name,
-            store_id=jumbo_item.item_id,
-            image_url=jumbo_item.image_url,
-            item_score=random.randint(1, 100) / 10,
-            score_reason=jumbo_item.ingredientes,
-            category="Yogurt",
-            price=jumbo_item.precio,
-            embedding=embedding,
-        )
-
-        # Supabase insert
-        try:
-            supabase.table("items").insert(item.model_dump()).execute()
-        except Exception as e:
-            logging.error(f"Supabase insert error for {jumbo_item.name}: {str(e)}")
-            raise
-
-    except Exception as e:
-        logging.error(f"Failed to process {jumbo_item.name}: {str(e)}")
-        append_to_failed_items(jumbo_item)
-
-
-def append_to_failed_items(item: JumboItem):
-    with open("failed_items.json", "a") as f:
-        json.dump(item.model_dump(), f)
-        f.write("\n")
-
-
-def bulk_upload_items(jumbo_items: List[JumboItem]):
-    with concurrent.futures.ThreadPoolExecutor(max_workers=16) as executor:
-        list(executor.map(process_item, jumbo_items))
-
-
-def load_items(filename: str) -> List[JumboItem]:
+def load_items(filename: str) -> Dict[str, List[JumboItem]]:
     with open(filename, "r") as f:
-        items = json.load(f)
-    return [JumboItem(**item) for item in items]
+        data = json.load(f)
 
+    items = {}
+    for category, category_items in data.items():
+        items[category] = [JumboItem(**item) for item in category_items]
 
-def load_failed_items() -> List[JumboItem]:
-    items = []
-    try:
-        with open("failed_items.json", "r") as f:
-            for line in f:
-                items.append(JumboItem(**json.loads(line)))
-    except FileNotFoundError:
-        logging.info("No failed items file found.")
     return items
 
 
-def main():
-    while True:
-        print("\n1. Upload whole file")
-        print("2. Retry failed items")
-        print("3. Exit")
-        choice = input("Enter your choice (1/2/3): ")
+def process_items(category: str, jumbo_items: List[JumboItem]):
+    logging.info(f"Processing {len(jumbo_items)} items in category: {category}")
 
-        if choice == "1":
-            filename = input("Enter the filename to upload (e.g., items.json): ")
-            try:
-                filename = filename or "items.json"
-                items = load_items(filename)
-                start_time = time.time()
-                bulk_upload_items(items)
-                total_time = time.time() - start_time
-                print(f"Total execution time: {total_time:.4f} seconds")
-            except FileNotFoundError:
-                print(f"File {filename} not found.")
-            except json.JSONDecodeError:
-                print(f"Invalid JSON in {filename}.")
-            except Exception as e:
-                print(f"An error occurred: {str(e)}")
+    # Prepare items for openai_scoring
+    products = [
+        openai_scoring.Product(
+            name=item["name"],
+            ingredients=item["ingredients"],
+            image_url=item["image_url"],
+        )
+        for item in jumbo_items
+    ]
 
-        elif choice == "2":
-            failed_items = load_failed_items()
-            if failed_items:
-                print(f"Retrying {len(failed_items)} failed items...")
-                start_time = time.time()
-                bulk_upload_items(failed_items)
-                total_time = time.time() - start_time
-                print(f"Total execution time: {total_time:.4f} seconds")
-                os.remove("failed_items.json")
-            else:
-                print("No failed items to retry.")
+    # Get scores from openai_scoring
+    try:
+        scoring_results = openai_scoring.main(products)
+    except Exception as e:
+        logging.error(f"Error in openai_scoring: {str(e)}")
+        scoring_results = []
 
-        elif choice == "3":
-            print("Exiting the program.")
-            break
+    # Create a dictionary for easy lookup
+    score_dict = {item["item"]: item for item in scoring_results}
 
-        else:
-            print("Invalid choice. Please try again.")
+    processed_items = []
+    for jumbo_item in jumbo_items:
+        try:
+            # OpenAI API call for embedding
+            response = openai_client.embeddings.create(
+                input=jumbo_item["name"], model="text-embedding-3-small"
+            )
+            embedding = response.data[0].embedding
+
+            # Get score and reason, or use fallback
+            score_info = score_dict.get(jumbo_item["name"], {})
+            item_score = score_info.get("score")
+            if not item_score:
+                logging.error(
+                    f"No score found, {score_info} for {jumbo_item['name']} in {category}"
+                )
+                continue
+            score_reason = score_info.get("reason")
+            if not score_reason:
+                logging.error(
+                    f"No reason found, {score_info} for {jumbo_item['name']} in {category}"
+                )
+                continue
+
+            # Create SupabaseItem
+            item = SupabaseItem(
+                item_name=jumbo_item["name"],
+                store_id=jumbo_item["item_id"],
+                image_url=jumbo_item["image_url"],
+                item_score=item_score,
+                score_reason=score_reason,
+                category=category,
+                price=jumbo_item["price"],
+                embedding=embedding,
+            )
+
+            processed_items.append(item)
+
+        except Exception as e:
+            logging.error(f"Failed to process {jumbo_item['name']}: {str(e)}")
+
+    # Supabase bulk insert
+    try:
+        supabase.table("items").insert(
+            [item.model_dump() for item in processed_items]
+        ).execute()
+    except Exception as e:
+        logging.error(f"Supabase insert error for category {category}: {str(e)}")
+
+    logging.info(f"Finished processing category: {category}")
+
+
+def linear_upload_items(items: Dict[str, List[JumboItem]]):
+    for category, category_items in items.items():
+        batch = category_items[:40]  # Take up to 40 items
+        process_items(category, batch)
 
 
 if __name__ == "__main__":
-    main()
+    with open("items.json", "r") as f:
+        data = json.load(f)
+    target_categories = [
+        "yoghurt",
+        "panaderia-envasada",
+        "huevos",
+        "aderezos-y-salsas",
+        "empanadas-y-sandwiches",
+        "helados-y-postres",
+        "licores-y-cocteles",
+        "vinos",
+        "fiambreria",
+    ]
+    categories_to_process = {}
+    for category, category_items in data.items():
+        if category not in target_categories:
+            continue
+        categories_to_process[category] = category_items
+
+    linear_upload_items(categories_to_process)
