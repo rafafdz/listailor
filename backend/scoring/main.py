@@ -126,41 +126,39 @@ def add_average_score(combined_result):
             average_score = total_score / count
         else:
             average_score = None  # In case no scores are found for the product
-        print(score_keys, average_score, product['name'])
         product['average_score'] = average_score
-
     return combined_result
 
+def main(products: list[dict]):
+    # products = [
+    #     Product(
+    #         name="Spirelli Vollkorn",
+    #         ingredients="Sémola de trigo duro integral orgánica, Gluten",
+    #         image_url="https://jumbo.vtexassets.com/arquivos/ids/844211-650-650",
+    #     ),
+    #     Product(
+    #         name="espirales pasta de mama",
+    #         ingredients="Sémola de trigos duros seleccionados, Niacina, Hierro (sulfato ferroso), Tiamina, Riboflavina, Gluten",
+    #         image_url="https://jumbo.vtexassets.com/arquivos/ids/839870-650-650",
+    #     ),
+    #     Product(
+    #         name="Espirales",
+    #         ingredients="Sémola de trigo candeal, Harina de trigo, Agua, Niacina, Hierro (sulfato ferroso), Tiamina, Riboflavina, Gluten (sémola), Gluten (harina de trigo)",
+    #         image_url="https://jumbo.vtexassets.com/arquivos/ids/467588-650-650",
+    #     ),
+    #     Product(
+    #         name="Cebolla",
+    #         ingredients="Cebolla",
+    #         image_url="https://jumbo.vtexassets.com/arquivos/ids/416120-650-650",
+    #     ),
+    #     Product(
+    #         name="Cebolla congelada",
+    #         ingredients="Cebolla",
+    #         image_url="https://jumbo.vtexassets.com/arquivos/ids/935610-650-650",
+    #     ),
+    # ]
 
-def main():
-    products = [
-        Product(
-            name="Spirelli Vollkorn",
-            ingredients="Sémola de trigo duro integral orgánica, Gluten",
-            image_url="https://jumbo.vtexassets.com/arquivos/ids/844211-650-650",
-        ),
-        Product(
-            name="espirales pasta de mama",
-            ingredients="Sémola de trigos duros seleccionados, Niacina, Hierro (sulfato ferroso), Tiamina, Riboflavina, Gluten",
-            image_url="https://jumbo.vtexassets.com/arquivos/ids/839870-650-650",
-        ),
-        Product(
-            name="Espirales",
-            ingredients="Sémola de trigo candeal, Harina de trigo, Agua, Niacina, Hierro (sulfato ferroso), Tiamina, Riboflavina, Gluten (sémola), Gluten (harina de trigo)",
-            image_url="https://jumbo.vtexassets.com/arquivos/ids/467588-650-650",
-        ),
-        Product(
-            name="Cebolla",
-            ingredients="Cebolla",
-            image_url="https://jumbo.vtexassets.com/arquivos/ids/416120-650-650",
-        ),
-        Product(
-            name="Cebolla congelada",
-            ingredients="Cebolla",
-            image_url="https://jumbo.vtexassets.com/arquivos/ids/935610-650-650",
-        ),
-    ]
-
+    products = [Product(p['name'], p['ingredients'], p['image_url']) for p in products]
 
     ingredient_scores = analyze_ingredients(products)
     image_scores = analyze_images(products)
@@ -183,8 +181,7 @@ def main():
             product['reason_summary'] = summarized_lookup[name]
 
     combined_dict = averaged_scores
-
-    print(combined_dict)
+    return combined_dict
 
 
 
