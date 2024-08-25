@@ -25,5 +25,5 @@ export function computeListScore(list) {
 }
 
 export function displayScore(score) {
-  return Number(score * 10);
+  return Math.round(score * 10);
 }

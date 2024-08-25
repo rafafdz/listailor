@@ -33,7 +33,7 @@ function QuantityButton({ icon, onClick }) {
 }
 
 export default function SelectProductDrawer({ open, product, onConfirm, onClose }) {
-  const suggestionsQ = useSearchQuery(product?.label, 5, { enabled: Boolean(product) });
+  const suggestionsQ = useSearchQuery(product?.label, 20, { enabled: Boolean(product) });
   const bestSuggestions = product
     ? (suggestionsQ.data || [])
         .filter(s => s.id !== product?.id && s.score > product?.score)

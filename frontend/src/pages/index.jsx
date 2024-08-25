@@ -89,13 +89,17 @@ export default function Home() {
               <ul
                 className={`flex flex-col space-y-4 transition-opacity duration-500 ${listVisible ? 'opacity-100' : 'opacity-0'}`}
               >
-                {(searchQ.data || []).map(product => (
+                {searchQ.data?.length > 0 ? searchQ.data.map(product => (
                   <ProductCard
                     key={product.id}
                     onClick={() => handleSelectProduct(product)}
                     product={product}
                   />
-                ))}
+                )) : (
+                  <span className='text-gray-400 text-center text-sm italic'>
+                    No se encontraron productos para la busqueda
+                  </span>
+                )}
               </ul>
             ) : lists.length > 0 ? (
               <>

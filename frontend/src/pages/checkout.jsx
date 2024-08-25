@@ -59,7 +59,7 @@ export default function Checkout() {
           </span>
           <Button
             onClick={() => setCredentialsDrawerOpen(true)}
-            className='flex flex-row gap-x-4 w-full'
+            className='gap-x-4 w-full'
             bgColor='bg-[#00a400]'
           >
             <span className="text-white font-semibold">
