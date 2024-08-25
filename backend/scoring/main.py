@@ -1,12 +1,10 @@
 from pydantic import BaseModel
 from openai import OpenAI
-from dotenv import load_dotenv
-import os
 from typing import List
-import json
+from settings import settings
 
-load_dotenv()
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+
+client = OpenAI(api_key=settings.OPENAI_API_KEY)
 
 
 class Product(BaseModel):
