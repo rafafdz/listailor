@@ -94,7 +94,7 @@ export default function SelectProductDrawer({ open, product, onConfirm, onClose 
   return (
     <Drawer open={open}>
       <DrawerContent ref={drawerRef}>
-        <DrawerHeader className='flex flex-col pb-10 pt-8'>
+        <DrawerHeader className='flex flex-col pb-4 pt-8'>
           {step === STEPS.suggestions && (
             <>
               <ProductCard
@@ -112,7 +112,7 @@ export default function SelectProductDrawer({ open, product, onConfirm, onClose 
               {suggestionsQ.isLoading ? (
                 <LoadingSpinner className='self-center my-10 w-12 h-12' />
               ) : bestSuggestions.length > 0 ? (
-                <div className='mt-4 flex flex-col gap-y-6'>
+                <div className='mt-4 flex flex-col gap-y-2'>
                   {bestSuggestions.map(suggestion => (
                     <ProductCard
                       product={suggestion}
@@ -126,7 +126,7 @@ export default function SelectProductDrawer({ open, product, onConfirm, onClose 
                   ))}
                 </div>
               ) : (
-                <p className='text-gray-600 italic mt-10'>No hay alternativas más sustentables</p>
+                <p className='text-gray-500 text-sm italic mt-10'>No hay alternativas más sustentables</p>
               )}
             </>
           )}

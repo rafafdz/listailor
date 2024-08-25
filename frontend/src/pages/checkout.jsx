@@ -37,35 +37,43 @@ export default function Checkout() {
 
   const score = computeListScore(selectedList)
 
-  return(
-    <div className='flex flex-col pt-20 w-full pb-20 grow px-4'>
+  return (
+    <div className='flex flex-col w-full px-4 h-screen'>
       {createListMutation.isPending ? (
         <JumboSpinner className="w-64 h-auto self-center mt-30" />
       ) : (
-        <div className='flex flex-col items-center grow px-4'>
+        <div className='mt-10 flex flex-col items-center px-4'>
           <div className='flex w-full flex-col items-center p-4 rounded-xl'>
             <span className='font-bold text-center text-gray-700'>
-              Tu score de sustentabilidad
+              Tu puntaje de sustentabilidad
             </span>
             <RadialChart score={score} />
+            <p className='text-gray-600 text-sm mt-10'>
+              El puntaje de sustentabilidad es un indicador de cuán sustentable es tu lista de compra. Para
+              obtenerlo se consideran multiples factores, como los ingredientes, el packaging, país de origen
+              y más. Esta información es usada por agentes basados en LLMs que asignan un puntaje a cada producto.
+            </p>
           </div>
+          <span className='mt-20 font-medium text-gray-400 mb-3 text-sm'>
+            ¿Quieres comprar tu lista en Jumbo?
+          </span>
           <Button
             onClick={() => setCredentialsDrawerOpen(true)}
-            className='flex flex-row gap-x-4 mt-auto w-full'
+            className='flex flex-row gap-x-4 w-full'
             bgColor='bg-[#00a400]'
           >
             <span className="text-white font-semibold">
-              Ir a jumbo
+              Ir a Jumbo
             </span>
             <img src="/jumbito.png" alt="Jumbo" className="w-7 h-auto" />
           </Button>
-          <CredentialsDrawer
-            open={credentialsDrawerOpen}
-            onConfirm={handleConfirm}
-            onClose={() => setCredentialsDrawerOpen(false)}
-          />
         </div>
       )}
+      <CredentialsDrawer
+        open={credentialsDrawerOpen}
+        onConfirm={handleConfirm}
+        onClose={() => setCredentialsDrawerOpen(false)}
+      />
     </div>
   )
 }

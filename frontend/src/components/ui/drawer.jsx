@@ -1,7 +1,13 @@
 import * as React from "react"
 import { Drawer as DrawerPrimitive } from "vaul"
+import { Inter as FontSans } from 'next/font/google';
 
 import { cn } from "@/lib/utils"
+
+const fontSans = FontSans({
+  subsets: ['latin'],
+  variable: '--font-sans',
+});
 
 const Drawer = ({
   shouldScaleBackground = true,
@@ -32,8 +38,9 @@ const DrawerContent = React.forwardRef(({ className, children, ...props }, ref) 
     <DrawerPrimitive.Content
       ref={ref}
       className={cn(
-        "fixed pb-4 inset-x-0 bottom-0 z-50 mt-24 flex h-auto flex-col rounded-t-[10px] border border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-950",
-        className
+        "fixed pb-4 inset-x-0 font-sans bottom-0 z-50 mt-24 flex h-auto flex-col rounded-t-[10px] border border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-950",
+        className,
+        fontSans.variable
       )}
       {...props}>
       <div
