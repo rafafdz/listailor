@@ -1,13 +1,13 @@
 from fastapi import FastAPI
-from routers import items
-from services import OpenAIService
+from routers import items, jumbo_carts
 
 app = FastAPI()
 
-app.include_router(items.router)
-
-
 @app.get("/")
-async def waste_gpt_credits():
-    openai_service = OpenAIService()
-    openai_service.waste_gpt_credits()
+async def root():
+    return {"message": "Hello listAIlor World"}
+    
+
+app.include_router(items.router)
+app.include_router(jumbo_carts.router)
+
