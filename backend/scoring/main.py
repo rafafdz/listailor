@@ -130,35 +130,7 @@ def add_average_score(combined_result):
     return combined_result
 
 def main(products: list[dict]):
-    # products = [
-    #     Product(
-    #         name="Spirelli Vollkorn",
-    #         ingredients="Sémola de trigo duro integral orgánica, Gluten",
-    #         image_url="https://jumbo.vtexassets.com/arquivos/ids/844211-650-650",
-    #     ),
-    #     Product(
-    #         name="espirales pasta de mama",
-    #         ingredients="Sémola de trigos duros seleccionados, Niacina, Hierro (sulfato ferroso), Tiamina, Riboflavina, Gluten",
-    #         image_url="https://jumbo.vtexassets.com/arquivos/ids/839870-650-650",
-    #     ),
-    #     Product(
-    #         name="Espirales",
-    #         ingredients="Sémola de trigo candeal, Harina de trigo, Agua, Niacina, Hierro (sulfato ferroso), Tiamina, Riboflavina, Gluten (sémola), Gluten (harina de trigo)",
-    #         image_url="https://jumbo.vtexassets.com/arquivos/ids/467588-650-650",
-    #     ),
-    #     Product(
-    #         name="Cebolla",
-    #         ingredients="Cebolla",
-    #         image_url="https://jumbo.vtexassets.com/arquivos/ids/416120-650-650",
-    #     ),
-    #     Product(
-    #         name="Cebolla congelada",
-    #         ingredients="Cebolla",
-    #         image_url="https://jumbo.vtexassets.com/arquivos/ids/935610-650-650",
-    #     ),
-    # ]
-
-    products = [Product(p['name'], p['ingredients'], p['image_url']) for p in products]
+    products = [Product(name=p['name'], ingredients=p['ingredientes'], image_url=p['image_url']) for p in products]
 
     ingredient_scores = analyze_ingredients(products)
     image_scores = analyze_images(products)
@@ -184,7 +156,8 @@ def main(products: list[dict]):
     return combined_dict
 
 
-
-
 if __name__ == "__main__":
-    main()
+    with open('items.json', 'r') as file:
+        json_text = file.read()
+    items = json.loads(json_text)
+    print(main(items))
