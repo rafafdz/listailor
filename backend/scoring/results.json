@@ -1,187 +1,202 @@
 [
     {
-        "item": "Pan Molde Ideal Blanco XL 740 g",
-        "score": 4.0,
-        "reason": "High environmental impact from wheat and plastic packaging without eco-friendly features."
+        "item": "Pan Molde Castaño Linaza 600 g",
+        "score": 6.15,
+        "reason": "Whole grains and seeds enhance sustainability; plastic packaging lacks eco-friendly claims."
     },
     {
-        "item": "Pan Molde Ideal Blanco Artesano Masa Madre 550 g",
-        "score": 4.05,
-        "reason": "Wheat's ecological detriment combined with non-sustainable plastic packaging."
+        "item": "Pan Molde Castaño Dúo XL 760 g",
+        "score": 5.5,
+        "reason": "Synthetic additives impact sustainability negatively; plastic packaging lacks eco-friendly indicators."
     },
     {
-        "item": "Pan Rústico Cuisine & Co Mini Masa Madre 900 g 12 un.",
-        "score": 3.65,
-        "reason": "Presence of palm oil and plastic packaging undermines sustainability."
-    },
-    {
-        "item": "Hallulla Cuisine & Co Precocida 8 un.",
-        "score": 3.2,
-        "reason": "Hydrogenated palm fat and plastic packaging pose serious sustainability threats."
-    },
-    {
-        "item": "Marraqueta Cuisine & Co Precocida 8 un.",
-        "score": 3.5,
-        "reason": "Refined ingredients paired with plastic packaging limit sustainability efforts."
-    },
-    {
-        "item": "Galletas de Maíz Salmas Horneadas 216 g",
-        "score": 5.4,
-        "reason": "Nixtamalized corn flour promotes sustainability despite plastic packaging concerns."
-    },
-    {
-        "item": "Pan Molde Kingsbury Perfecto 580 g",
-        "score": 3.85,
-        "reason": "Wheat's high environmental cost compounded by non-recyclable plastic packaging."
-    },
-    {
-        "item": "Pan Molde Ideal Cero Cero Integral 600 g",
+        "item": "Pan Hamburguesa Ideal Artesano 720 g 8 un.",
         "score": 5.45,
-        "reason": "Whole grain flour enhances sustainability, yet plastic packaging tempers its impact."
+        "reason": "Additives and hydrogenated oils lower sustainability; plastic packaging isn't eco-friendly."
     },
     {
-        "item": "Pan Molde Ideal Cero Cero Blanco 580 g",
-        "score": 3.8,
-        "reason": "Whole grain presence offset by ecological costs of wheat and plastic packaging."
+        "item": "Pan Molde Fibra Clean Label 780 g",
+        "score": 6.85,
+        "reason": "Avoids synthetic additives, boosting sustainability; plastic packaging lacks eco-focus."
     },
     {
-        "item": "Pan Molde Castaño Blanco XL Sin Lactosa 770 g",
-        "score": 3.65,
-        "reason": "Refined oils diminish sustainability alongside non-eco-friendly plastic packaging."
-    },
-    {
-        "item": "Pan Molde Low Carb Clean Label 700 g",
-        "score": 4.5,
-        "reason": "Diverse ingredients but still burdened by plastic packaging sustainability issues."
-    },
-    {
-        "item": "Pan Molde Cuisine & Co Blanco 560 g",
-        "score": 3.9,
-        "reason": "Refined soy oil and plastic packaging contribute to low sustainability score."
-    },
-    {
-        "item": "Pan Molde Ideal Integral Artesano 600 g",
-        "score": 5.05,
-        "reason": "Natural ingredients enhance sustainability, though plastic packaging remains a concern."
-    },
-    {
-        "item": "Pan Molde Proteína Clean Label 780 g",
-        "score": 4.75,
-        "reason": "Whole wheat flour supports sustainability but hindered by plastic packaging."
-    },
-    {
-        "item": "Pan Pita Ideal Integral 344 g 8 un.",
-        "score": 4.25,
-        "reason": "Whole grains offset refined sugars, but plastic packaging detracts from sustainability."
-    },
-    {
-        "item": "Pan Pita Castaño Integral 300 g 8 un.",
-        "score": 4.25,
-        "reason": "Whole grains beneficial, yet refined ingredients and plastic packaging harm sustainability."
-    },
-    {
-        "item": "Pan Molde Kingsbury Perfecto Dúo 580 g",
-        "score": 3.65,
-        "reason": "Refined sugars counteract sustainability paired with non-recyclable plastic packaging."
-    },
-    {
-        "item": "Pan Molde Kingsbury Hi Low 500 g",
-        "score": 4.2,
-        "reason": "Whole grains support soil health, but plastic packaging hampers sustainability perceptions."
-    },
-    {
-        "item": "Pan Molde Vollkorn Blanco Sin Orillas 405 g",
-        "score": 4.25,
-        "reason": "Additives complicate sustainability although some benefits from whole grain presence."
-    },
-    {
-        "item": "Pan Hamburguesa Cuisine & Co Sésamo 520 g 8 un.",
-        "score": 4.0,
-        "reason": "Wheat reliance limits eco-friendliness while plastic packaging adds to concerns."
-    },
-    {
-        "item": "Pan Hot Dog Cuisine & Co 415 g 8 un.",
-        "score": 4.15,
-        "reason": "Whole grain balance reduced by refined components, and plastic packaging challenges sustainability."
-    },
-    {
-        "item": "Pan Molde Cuisine & Co Integral 560 g",
-        "score": 4.3,
-        "reason": "Enriched wheat combined with plastic packaging diminishes eco-friendly attributes."
-    },
-    {
-        "item": "Pan Molde Sarraceno Clean Label 800 g",
-        "score": 4.5,
-        "reason": "Whole grain use supports sustainability but is undermined by plastic packaging."
-    },
-    {
-        "item": "Pan Molde Wholegrain Clean Label 550 g",
-        "score": 4.5,
-        "reason": "Whole grain incorporation enhances sustainability, managed by plastic packaging issues."
-    },
-    {
-        "item": "Pan Marraqueta Bredenmaster Tradicional 10 un.",
-        "score": 4.1,
-        "reason": "Wheat dominance and plastic packaging lead to moderate sustainability challenges."
-    },
-    {
-        "item": "Pan Molde Castaño Integral 630 g",
+        "item": "Pan Hallulla Bredenmaster Especial 30 un.",
         "score": 5.1,
-        "reason": "Whole grain inclusivity supports sustainability despite minor ecological concerns from ingredients."
+        "reason": "Palm oil and synthetic ingredients reduce sustainability; plastic packaging lacks eco-claims."
     },
     {
-        "item": "Pan Pita Ideal Blanco 344 g 8 un.",
-        "score": 3.7,
-        "reason": "Animal by-products and hydrogenated oils limit sustainability alongside plastic packaging."
+        "item": "Pan Completo Ideal XL 528 g 6 un.",
+        "score": 4.75,
+        "reason": "Unsustainable ingredients; plastic packaging isn't eco-friendly."
     },
     {
-        "item": "Pan Pita Castaño Blanco 300 g 8 un.",
-        "score": 4.05,
-        "reason": "Refined ingredients inhibit sustainability potential with ongoing plastic packaging issues."
+        "item": "Pan Pita Kingsbury Perfecto 300 g 8 un.",
+        "score": 5.85,
+        "reason": "Sustainable ingredients with some additives; plastic packaging affects eco-friendliness."
     },
     {
-        "item": "Pan Molde Vollkorn Centeno Schwarzbrot 750 g",
-        "score": 4.3,
-        "reason": "Whole grains offer benefits, but additive reliance and plastic packaging limit sustainability."
+        "item": "Pan Hot Dog Castaño 480 g 8 un.",
+        "score": 5.15,
+        "reason": "Additives and high fructose syrup impact sustainability; plastic packaging lacks eco-friendly claims."
     },
     {
-        "item": "Pan Molde Fuchs Integral Trigo 650 g",
-        "score": 4.5,
-        "reason": "Proportion of whole grains boosts sustainability despite plastic packaging challenges."
+        "item": "Pan Parrillero Castaño 330 g 12 un.",
+        "score": 5.25,
+        "reason": "Synthetic additives reduce sustainability; plastic packaging isn't eco-friendly."
     },
     {
-        "item": "Pan Molde Cuisine & Co Multisemillas Sin Gluten 480 g",
-        "score": 3.95,
-        "reason": "Palm oil and processed ingredients impact sustainability and plastic harms perception."
-    },
-    {
-        "item": "Pan Molde Cuisine & Co Blanco Sin Gluten 480 g",
-        "score": 3.7,
-        "reason": "Sustainability diminished by palm oil and plastic packaging presenting low perceptions."
-    },
-    {
-        "item": "Pan Molde Spagnolia Miga Blanco 440 g",
-        "score": 3.5,
-        "reason": "Processed ingredients and palm oil hinder sustainability, compounded by plastic packaging."
-    },
-    {
-        "item": "Pan Molde Ideal Integral +Protein10 Bolsa 650 g",
-        "score": 4.5,
-        "reason": "Whole grain flour boosts sustainability while plastic packaging and refined oils detract."
-    },
-    {
-        "item": "Pan Hot Dog Ideal 480 g",
-        "score": 3.8,
-        "reason": "Processed oils negatively impact sustainability, further lowered by plastic packaging."
-    },
-    {
-        "item": "Galletas de Maíz Salmas Morado Horneada 90 g",
+        "item": "Pan Pita Castaño Chía Linaza 300 g",
         "score": 5.45,
-        "reason": "Traditional ingredients enhance sustainability, but plastic packaging affects overall perception."
+        "reason": "Additives impact sustainability; plastic packaging isn't eco-friendly."
     },
     {
-        "item": "Pan Molde Cuisine & Co Blanco XL 750 g",
-        "score": 3.95,
-        "reason": "Over-processed ingredients lead to low sustainability, sustained by plastic packaging."
+        "item": "Pan Pita Ideal Light Linaza 300 g 8 un.",
+        "score": 5.7,
+        "reason": "Sustainable grains lowered by additives; plastic packaging lacks eco-friendly claims."
+    },
+    {
+        "item": "Pan Pita Castaño Multigrano 300 g 8 un.",
+        "score": 5.8,
+        "reason": "Natural ingredients with some additives; plastic packaging isn't sustainable."
+    },
+    {
+        "item": "Pan Molde Vollkorn Integral Schrotbrot 550 g",
+        "score": 6.05,
+        "reason": "Whole grain ingredients with minimal additives; plastic packaging lacks eco-friendly features."
+    },
+    {
+        "item": "Pan Molde Vollkorn Centeno Con Linaza 500 g",
+        "score": 6.0,
+        "reason": "Whole grains with some synthetic preservatives; plastic packaging isn't eco-friendly."
+    },
+    {
+        "item": "Pan Molde Ideal Blanco Sándwich 700 g",
+        "score": 5.75,
+        "reason": "Natural ingredients with some synthetic ones; plastic packaging lacks eco-friendly claims."
+    },
+    {
+        "item": "Pan Molde Castaño Multigrano 400 g",
+        "score": 5.95,
+        "reason": "Variety of grains enhance sustainability; plastic packaging lacks eco-claims."
+    },
+    {
+        "item": "Pan Molde Castaño Integral Linaza 400 g",
+        "score": 6.15,
+        "reason": "Whole grains boost sustainability; plastic packaging lacks eco-friendly claims."
+    },
+    {
+        "item": "Pan Tapadito Castaño 350 g",
+        "score": 5.2,
+        "reason": "Synthetic oils reduce sustainability; plastic packaging isn't eco-friendly."
+    },
+    {
+        "item": "Pan de Molde Blanco Jumbo Artesanal 1 kg",
+        "score": 2.25,
+        "reason": "Ingredients not available for evaluation; plastic packaging lacks sustainability."
+    },
+    {
+        "item": "Pan de Molde Integral Jumbo Artesanal 900 g",
+        "score": 2.25,
+        "reason": "Ingredients not available for evaluation; plastic packaging lacks sustainability."
+    },
+    {
+        "item": "Pan Hamburguesa Ideal Artesano Brioche 352 g 4 un.",
+        "score": 4.85,
+        "reason": "Unsustainable ingredients; plastic packaging isn't eco-friendly."
+    },
+    {
+        "item": "Pan Molde Cuisine & Co Integral Sin Gluten 480 g",
+        "score": 5.5,
+        "reason": "Synthetic additives lower sustainability; plastic packaging isn't eco-friendly."
+    },
+    {
+        "item": "Pan Molde Ideal Blanco 350 g",
+        "score": 5.65,
+        "reason": "Natural ingredients with synthetic additives; plastic packaging isn't eco-friendly."
+    },
+    {
+        "item": "Pan Hamburguesa Cuisine & Co Brioche 600 g 8 un.",
+        "score": 2.25,
+        "reason": "Ingredients not available for evaluation; plastic packaging lacks sustainability."
+    },
+    {
+        "item": "Baguettes Pan & Plus 300 g 2 un.",
+        "score": 6.2,
+        "reason": "Natural ingredients enhance sustainability; plastic packaging affects it negatively."
+    },
+    {
+        "item": "Pan Rústico Cuisine & Co Precocido 6 un.",
+        "score": 5.7,
+        "reason": "Natural ingredients with some preservatives; plastic packaging isn't eco-friendly."
+    },
+    {
+        "item": "Pan Integral Kingsbury 700 g",
+        "score": 5.6,
+        "reason": "Whole grains mixed with preservatives; plastic packaging lacks eco-friendly claims."
+    },
+    {
+        "item": "Pan Pita Sin Gluten 260 g 6 un.",
+        "score": 5.0,
+        "reason": "Synthetic ingredients reduce sustainability; plastic packaging isn't eco-friendly."
+    },
+    {
+        "item": "Pan Rallado Vollkorn Integral 500 g",
+        "score": 5.7,
+        "reason": "Natural ingredients with some preservatives; plastic packaging isn't sustainable."
+    },
+    {
+        "item": "Pan Queso Grespan Original 400 g 25 un.",
+        "score": 5.85,
+        "reason": "Natural ingredients support sustainability; plastic packaging affects it negatively."
+    },
+    {
+        "item": "Pan Molde Dilici Blanco Sin Gluten 430 g",
+        "score": 5.2,
+        "reason": "Synthetic additives reduce sustainability; plastic packaging isn't eco-friendly."
+    },
+    {
+        "item": "Hallulla Precocida Sin Gluten 320 g 4 un.",
+        "score": 4.9,
+        "reason": "Synthetic additives lower sustainability; plastic packaging isn't eco-friendly."
+    },
+    {
+        "item": "Pan Molde Vollkorn Integral Light 550 g",
+        "score": 5.55,
+        "reason": "Sustainable ingredients with some additives; plastic packaging isn't eco-friendly."
+    },
+    {
+        "item": "Pan Molde Castaño Integral Light 540 g",
+        "score": 5.5,
+        "reason": "Whole grains with synthetic additives; plastic packaging isn't eco-friendly."
+    },
+    {
+        "item": "Pan Hamburguesa Castaño Brioche XL 660 g 8 un.",
+        "score": 5.25,
+        "reason": "High fructose syrup and additives reduce sustainability; plastic packaging isn't eco-friendly."
+    },
+    {
+        "item": "Pan Hallulla Pilmayquen 480 g 10 un.",
+        "score": 5.65,
+        "reason": "Sustainable ingredients with some antioxidants; plastic packaging isn't eco-friendly."
+    },
+    {
+        "item": "Grissini Granforno Sésamo 125 g",
+        "score": 6.25,
+        "reason": "Natural ingredients support sustainability; plastic packaging affects it negatively."
+    },
+    {
+        "item": "Pan Amasado Pilmayquen 480 g",
+        "score": 5.65,
+        "reason": "Natural ingredients with some additives; plastic packaging isn't eco-friendly."
+    },
+    {
+        "item": "Pan Molde Vollkorn Centeno Superior 500 g",
+        "score": 6.0,
+        "reason": "Sustainable grains with some additives; plastic packaging isn't eco-friendly."
+    },
+    {
+        "item": "Pan Pita Ideal Blanco Light 300 g 8 un.",
+        "score": 5.45,
+        "reason": "Additives impact sustainability; plastic packaging isn't eco-friendly."
     }
 ]

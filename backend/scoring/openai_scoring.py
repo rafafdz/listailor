@@ -5,7 +5,7 @@ import os
 from typing import List
 import json
 
-oai_model = "gpt-4o-mini"
+oai_model = "gpt-4o"
 load_dotenv()
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 

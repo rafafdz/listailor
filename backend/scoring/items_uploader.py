@@ -126,7 +126,7 @@ def process_items(category: str, jumbo_items: List[JumboItem]):
 
     # Supabase bulk insert
     try:
-        supabase.table("items").insert(
+        supabase.table("items").upsert(
             [item.model_dump() for item in processed_items]
         ).execute()
     except Exception as e:
@@ -137,12 +137,12 @@ def process_items(category: str, jumbo_items: List[JumboItem]):
 
 def linear_upload_items(items: Dict[str, List[JumboItem]]):
     for category, category_items in items.items():
-        batch = category_items[:40]  # Take up to 40 items
+        batch = category_items[40:80]  # Take up to 40 items
         process_items(category, batch)
 
 
 if __name__ == "__main__":
-    with open("items.json", "r") as f:
+    with open("items_utf8.json", "r") as f:
         data = json.load(f)
     target_categories = [
         "yoghurt",
