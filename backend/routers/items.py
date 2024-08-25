@@ -7,6 +7,7 @@ router = APIRouter(
     tags=["items"],
 )
 
+
 class ItemResponse(BaseModel):
     id: str
     label: str
