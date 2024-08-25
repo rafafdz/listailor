@@ -5,7 +5,7 @@ import { useCreateList } from '@/api/lists';
 import JumboSpinner from '@/components/ui/JumboSpinner';
 import { useLists } from '@/contexts/ListsContext';
 import { computeListScore } from '@/lib/utils';
-import ScoreBadge from '@/components/ui/ScoreBadge';
+import { RadialChart } from '@/components/ui/RadialChart';
 
 export default function Checkout() {
   const [credentialsDrawerOpen, setCredentialsDrawerOpen] = useState(false)
@@ -36,34 +36,18 @@ export default function Checkout() {
   }
 
   const score = computeListScore(selectedList)
-  const scorePercentage = Number(score * 10);
 
   return(
-    <div className='flex flex-col mt-20 w-full pb-20 grow px-4'>
+    <div className='flex flex-col pt-20 w-full pb-20 grow px-4'>
       {createListMutation.isPending ? (
         <JumboSpinner className="w-64 h-auto self-center mt-30" />
       ) : (
         <div className='flex flex-col items-center grow px-4'>
-          <ScoreBadge score={score} size="xl" />
-          <div className='flex flex-row mt-4 items-center gap-x-4 w-full'>
-            <span className='text-xl mb-3'>
-              🚬
+          <div className='flex w-full flex-col items-center p-4 rounded-xl'>
+            <span className='font-bold text-center text-gray-700'>
+              Tu score de sustentabilidad
             </span>
-            <div className='relative w-full h-2 bg-gray-200 rounded-full'>
-              <div
-                className='absolute h-full bg-primary rounded-full'
-                style={{ width: `${scorePercentage}%` }}
-              />
-            </div>
-            <span className='text-xl mb-2'>
-              🐢
-            </span>
-          </div>
-          <div className='grow'>
-            <p className='mt-20 text-gray-700'>
-              Tu lista de compras es más sustentable que el 83% de las personas que han hecho listas
-              con productos similares.
-            </p>
+            <RadialChart score={score} />
           </div>
           <Button
             onClick={() => setCredentialsDrawerOpen(true)}
@@ -85,3 +69,4 @@ export default function Checkout() {
     </div>
   )
 }
+
