@@ -29,6 +29,11 @@ class SupabaseService:
             "match_items",
             {"match_count": n, "match_threshold": 0.1, "query_embedding": embeddings},
         ).execute()
+
+        if response.data:
+            for item in response.data:
+                item.pop("embedding", None)
+
         print(response.data)
         return response.data
 
