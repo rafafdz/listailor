@@ -1,0 +1,20 @@
+name: Deploy
+on:
+  push:
+    branches:
+      - 'main'
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: Perform Deploy
+        run: ./scripts/deploy.sh
+        env:
+          PROD_DOMAIN:             ${{ secrets.PROD_DOMAIN }}
+          PROD_USERNAME:           ${{ secrets.PROD_USERNAME }}
+          PROD_SSH_KEY:            ${{ secrets.PROD_SSH_KEY }}
+          PROD_DEPLOY_DIR:         ${{ secrets.PROD_DEPLOY_DIR }}
+          PROD_SSH_PORT:           ${{ secrets.PROD_SSH_PORT }}
+          PROD_PERFORM_DEPLOY:     ${{ secrets.PROD_PERFORM_DEPLOY }}
