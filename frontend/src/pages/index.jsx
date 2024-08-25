@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useSearchQuery } from '@/api/useSearch';
 import { ClipboardDocumentIcon, ShoppingCartIcon } from '@heroicons/react/24/solid';
+import Link from "next/link";
 import SearchBar from '@/components/ui/SearchBar';
 import ListCard from '@/components/ui/ListCard';
 import ProductCard from '@/components/ui/ProductCard';
