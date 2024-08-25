@@ -1,12 +1,14 @@
 from pydantic import BaseModel
 from openai import OpenAI
+from dotenv import load_dotenv
+import os
 from typing import List
-from settings import settings
+import json
 
-client = OpenAI(api_key=settings.OPENAI_API_KEY)
 oai_model = "gpt-4o"
 
 load_dotenv()
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 
 class Product(BaseModel):
@@ -115,6 +117,21 @@ def combine_scores(score_dicts_with_names):
     return {'products': list(combined_products.values())}
 
 
+def add_average_score(combined_result):
+    for product in combined_result['products']:
+        score_keys = [key for key in product.keys() if key.endswith('_score')]
+        total_score = sum(product[key] for key in score_keys)
+        count = len(score_keys)
+        if count > 0:
+            average_score = total_score / count
+        else:
+            average_score = None  # In case no scores are found for the product
+        print(score_keys, average_score, product['name'])
+        product['average_score'] = average_score
+
+    return combined_result
+
+
 def main():
     products = [
         Product(
@@ -147,8 +164,6 @@ def main():
 
     ingredient_scores = analyze_ingredients(products)
     image_scores = analyze_images(products)
-    print("Analysis results:")
-    print(ingredient_scores, image_scores)
 
     score_dicts_with_names = {
         "image": image_scores,
@@ -156,7 +171,22 @@ def main():
     }
 
     combined_scores = combine_scores(score_dicts_with_names)
-    print(analyze_reasons(combined_scores))
+    reasons = analyze_reasons(combined_scores)
+
+    averaged_scores = add_average_score(combined_scores)
+
+    summarized_lookup = {product['name']: product['reason'] for product in reasons['products']}
+
+    for product in averaged_scores['products']:
+        name = product['name']
+        if name in summarized_lookup:
+            product['reason_summary'] = summarized_lookup[name]
+
+    combined_dict = averaged_scores
+
+    print(combined_dict)
+
+
 
 
 if __name__ == "__main__":
