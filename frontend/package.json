@@ -22,6 +22,7 @@
     "lodash": "^4.17.21",
     "lucide-react": "^0.435.0",
     "next": "14.2.6",
+    "posthog-js": "^1.158.2",
     "react": "^18",
     "react-dom": "^18",
     "recharts": "^2.12.7",

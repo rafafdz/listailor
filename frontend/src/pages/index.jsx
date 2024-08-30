@@ -8,6 +8,7 @@ import SelectProductDrawer from '@/components/ui/SelectProductDrawer';
 import { BASE_LIST, useLists } from '@/contexts/ListsContext';
 import JumboSpinner from '@/components/ui/JumboSpinner';
 import Link from 'next/link';
+import { PostHogProvider } from '@/components/PostHogProvider';
 
 export default function Home() {
   const { lists, selectedList, addItemToList, removeItemFromList, selectList } = useLists();
@@ -62,8 +63,9 @@ export default function Home() {
   useEffect(() => selectList(BASE_LIST.name), []);
 
   return (
-    <main className='relative pt-40 flex flex-col py-4'>
-      <div className='fixed z-50 bg-white w-full top-0 pt-12 pb-4 px-4 flex flex-row gap-x-4 w-full flex items-center'>
+    <PostHogProvider>
+      <main className='relative pt-40 flex flex-col py-4'>
+        <div className='fixed z-50 bg-white w-full top-0 pt-12 pb-4 px-4 flex flex-row gap-x-4 w-full flex items-center'>
         <SearchBar
           onChangeText={(text) => setText(text)}
           onSubmit={() => console.log('submit')}
@@ -129,7 +131,8 @@ export default function Home() {
         onConfirm={handleAddProduct}
         onClose={() => setProductDrawerOpen(false)}
       />
-    </main>
+      </main>
+    </PostHogProvider>
   );
 }
 
