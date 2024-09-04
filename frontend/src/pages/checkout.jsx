@@ -34,6 +34,9 @@ export default function Checkout() {
           const url = `https://www.jumbo.cl/lista-de-compra?l=${shoppingListId}`;
           window.open(url, "_blank");
         },
+        onError: (error) => {
+          alert("Credenciales de Jumbo inválidas!");
+        },
       }
     );
   }

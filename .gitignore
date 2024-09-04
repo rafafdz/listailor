@@ -1,0 +1,4 @@
+# AWS Lambda deployment package
+package
+aws_deployment_package.zip
+requirements.txt

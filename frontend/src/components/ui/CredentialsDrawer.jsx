@@ -34,7 +34,7 @@ export default function CredentialsDrawer({ open, onConfirm, onClose }) {
   return (
     <Drawer open={open}>
       <DrawerContent ref={drawerRef}>
-        <DrawerHeader className='flex flex-col pb-10 pt-12 gap-y-6 pb-10'>
+        <DrawerHeader className='flex flex-col pb-10 pt-12 gap-y-6'>
           <p className='font-semibold'>
             🛒 <span className='mr-1'></span> Ingresa tus credenciales de tu cuenta Jumbo para crear tu carrito
           </p>
