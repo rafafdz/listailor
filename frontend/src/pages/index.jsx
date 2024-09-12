@@ -85,7 +85,9 @@ export default function Home() {
         </div>
         <div className="flex-1 overflow-y-auto px-6">
           {searchQ.isFetching ? (
-            <JumboSpinner className="w-64 h-auto self-center mt-10" />
+            <div className="flex justify-center items-center">
+              <JumboSpinner className="w-64 h-auto self-center mt-10" />
+            </div>
           ) : (
             <>
               {debouncedText ? (

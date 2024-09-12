@@ -47,7 +47,9 @@ export default function Checkout() {
     <PostHogProvider>
       <div className="flex flex-col w-full px-4 h-screen">
         {createListMutation.isPending ? (
-          <JumboSpinner className="w-64 h-auto self-center mt-30" />
+          <div className="flex justify-center items-center">
+            <JumboSpinner className="w-64 h-auto self-center mt-30" />
+          </div>
         ) : (
           <div className="mt-10 flex flex-col items-center px-4">
             <div className="flex w-full flex-col items-center p-4 rounded-xl">
