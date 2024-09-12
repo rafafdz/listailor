@@ -41,7 +41,7 @@ export default function Cart() {
             Tu carrito
           </h1>
         </div>
-        <div className='flex grow flex-col space-y-6 w-full mt-10 pl-4 pr-8'>
+        <div className='flex flex-col space-y-6 w-full mt-10 pl-4 pr-8 overflow-y-scroll lg:h-[600px]'>
           {selectedList.items.map(item => (
             <CartProductCard
               key={item.id}
@@ -50,7 +50,7 @@ export default function Cart() {
             />
           ))}
         </div>
-        <div className='fixed bottom-0 bg-white p-6 w-full shadow border-t border-gray-50'>
+        <div className='fixed bottom-0 lg:relative g-white p-6 w-full shadow border-t border-gray-50'>
           <Link
             href="/checkout"
             className='w-full bg-primary py-2 w-full flex items-center justify-center rounded-xl'
